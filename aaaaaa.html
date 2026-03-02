@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Earn Rewards</title>
+<script src="https://auruads.com/cdn/ads.js?app_uid=2787"></script>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family: 'Segoe UI', sans-serif;
+}
+
+body{
+background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+color:white;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+text-align:center;
+}
+
+.container{
+background: rgba(255,255,255,0.05);
+padding:30px;
+border-radius:20px;
+backdrop-filter: blur(10px);
+width:90%;
+max-width:400px;
+box-shadow:0 0 20px rgba(0,0,0,0.5);
+}
+
+h2{
+margin-bottom:15px;
+}
+
+.balance{
+margin:15px 0;
+font-size:18px;
+color:#00ffcc;
+}
+
+button{
+padding:15px 25px;
+font-size:16px;
+background:#ff9800;
+border:none;
+border-radius:12px;
+color:white;
+cursor:pointer;
+transition:0.3s;
+width:100%;
+}
+
+button:hover{
+transform:scale(1.05);
+background:#ff5722;
+}
+
+.footer{
+margin-top:15px;
+font-size:12px;
+opacity:0.7;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h2>🎁 Watch Ad & Earn</h2>
+
+<p id="username">Loading...</p>
+
+<div class="balance">
+Balance: <span id="points">0</span> Coins
+</div>
+
+<button onclick="showAd()">🚀 Watch Ad</button>
+
+<div class="footer">
+Powered by Telegram Mini App
+</div>
+</div>
+
+<script>
+const tg = window.Telegram.WebApp;
+tg.expand();
+
+let user = tg.initDataUnsafe?.user;
+if(user){
+document.getElementById("username").innerHTML =
+"Hello, " + user.first_name;
+}
+
+let points = 0;
+
+function showAd(){
+    // আপনার Ad Direct Link এখানে বসান
+    window.open("https://auruads.com/cdn/ads.js?app_uid=2787", "_blank");
+
+    // Reward System
+    setTimeout(function(){
+        points += 5;
+        document.getElementById("points").innerText = points;
+        alert("✅ You earned 5 Coins!");
+    },4000);
+}
+</script>
+
+</body>
+</html>
